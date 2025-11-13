@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\UploadController;
 
 // redirect root ke login
 
@@ -15,4 +16,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/berita/create', [BeritaController::class, 'create'])->name('berita.create');
     Route::post('/berita', [BeritaController::class, 'store'])->name('berita.store');
     Route::delete('/berita/{beritum}', [BeritaController::class, 'destroy'])->name('berita.destroy');
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/uploads', [UploadController::class, 'index'])->name('uploads.index');
+    Route::post('/uploads', [UploadController::class, 'store'])->name('uploads.store');
+    Route::delete('/uploads/{upload}', [UploadController::class, 'destroy'])->name('uploads.destroy');
 });
