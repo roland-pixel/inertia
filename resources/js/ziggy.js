@@ -1,37 +1,5 @@
-const Ziggy = {
-    url: "https://emateri.kharisraihan.my.id",
-    port: null,
-    defaults: {},
-    routes: {
-        login: { uri: "login", methods: ["GET", "HEAD"] },
-        "login.post": { uri: "login", methods: ["POST"] },
-        logout: { uri: "logout", methods: ["POST"] },
-        "berita.index": { uri: "berita", methods: ["GET", "HEAD"] },
-        "berita.create": { uri: "berita/create", methods: ["GET", "HEAD"] },
-        "berita.store": { uri: "berita", methods: ["POST"] },
-        "berita.destroy": {
-            uri: "berita/{beritum}",
-            methods: ["DELETE"],
-            parameters: ["beritum"],
-            bindings: { beritum: "id" },
-        },
-        "uploads.index": { uri: "uploads", methods: ["GET", "HEAD"] },
-        "uploads.store": { uri: "uploads", methods: ["POST"] },
-        "uploads.destroy": {
-            uri: "uploads/{upload}",
-            methods: ["DELETE"],
-            parameters: ["upload"],
-            bindings: { upload: "id" },
-        },
-        "storage.local": {
-            uri: "storage/{path}",
-            methods: ["GET", "HEAD"],
-            wheres: { path: ".*" },
-            parameters: ["path"],
-        },
-    },
-};
-if (typeof window !== "undefined" && typeof window.Ziggy !== "undefined") {
-    Object.assign(Ziggy.routes, window.Ziggy.routes);
+const Ziggy = {"url":"http:\/\/localhost","port":null,"defaults":{},"routes":{"login":{"uri":"login","methods":["GET","HEAD"]},"login.post":{"uri":"login","methods":["POST"]},"logout":{"uri":"logout","methods":["POST"]},"berita.index":{"uri":"berita","methods":["GET","HEAD"]},"berita.create":{"uri":"berita\/create","methods":["GET","HEAD"]},"berita.store":{"uri":"berita","methods":["POST"]},"berita.destroy":{"uri":"berita\/{beritum}","methods":["DELETE"],"parameters":["beritum"],"bindings":{"beritum":"id"}},"uploads.index":{"uri":"uploads","methods":["GET","HEAD"]},"uploads.store":{"uri":"uploads","methods":["POST"]},"uploads.destroy":{"uri":"uploads\/{upload}","methods":["DELETE"],"parameters":["upload"],"bindings":{"upload":"id"}},"storage.local":{"uri":"storage\/{path}","methods":["GET","HEAD"],"wheres":{"path":".*"},"parameters":["path"]}}};
+if (typeof window !== 'undefined' && typeof window.Ziggy !== 'undefined') {
+  Object.assign(Ziggy.routes, window.Ziggy.routes);
 }
 export { Ziggy };
